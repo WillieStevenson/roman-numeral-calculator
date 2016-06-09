@@ -147,13 +147,12 @@ def romanMultiply(x, y):
 	helper_step_formatter(product, "FINAL ANSWER")
 
 
-
-
 ##################################################
 ##########								 ######### 
 ##               HELPER FUNCTIONS               ## 
 ##########           					 #########
 ##################################################
+
 
 # takes the compact terms (ex. IV) and translates them to their expanded roman numeral value
 def helper_uncompact_subtractives(x):
@@ -162,7 +161,6 @@ def helper_uncompact_subtractives(x):
 		x = x.replace(key, romanNumeralSubtractives[key])
 
 	return x
-
 
 def helper_concantenate(x, y):
 	return x + y
@@ -213,12 +211,6 @@ def helper_eliminate_common_symbols(x, y):
 	
 	return [tempX, tempY]
 
-# formats each step 
-def helper_step_formatter(x, step_name):
-	print("--------------------------------------------------------------------------")
-	#print x, "  | \t",  step_name
-	print('{0:20} | {1:30}'.format(x, step_name))
-
 # reduce roman numeral to all 'I's and the count - effectively finding the integer value of the string
 def helper_reduce(x):
 
@@ -237,28 +229,18 @@ def helper_is_string_roman_numeral(x):
 
 	return True
 
+# formats each step 
+def helper_step_formatter(x, step_name):
+	print("--------------------------------------------------------------------------")
+	#print x, "  | \t",  step_name
+	print('{0:20} | {1:30}'.format(x, step_name))
+
 
 ##################################################
 ##########								 ######### 
 ##             END HELPER FUNCTIONS             ## 
 ##########           					 #########
 ##################################################
-
-
-# Test runs
-
-# romanAdd("XIX", "XLV")
-# print("\n")
-# romanAdd("D", "M")
-# print("\n")
-# romanSubtract("XLIV", "XXXVI")
-# print("\n")
-# romanSubtract("LVII", "XXIV")
-# print("\n")
-# romanMultiply("VI", "VII")
-# print("\n")
-# romanMultiply("L", "XI")
-
 
 if __name__ == "__main__":
 	print " ------------------------------------------------------------------------------------------------------ "
@@ -269,8 +251,7 @@ if __name__ == "__main__":
 		operation = raw_input("\nWhat would you like to do? Enter [+] [-] [x] [Q - Quit]: ")
 
 		if (operation != "Q" and operation != "+" and operation != "-" and operation != "x"):
-			print "Unsupported. Please enter a supported operation."
-			break
+			print "Unsupported operation. Please enter a supported operation."
 
 		if operation == "Q":
 			break
@@ -278,14 +259,15 @@ if __name__ == "__main__":
 		operand1 = raw_input("Enter first roman numeral: ")
 
 		if not helper_is_string_roman_numeral(operand1):
-			print "Unsupported operand(s). Please enter a roman numeral with valid characters."
-			break
+			print "Unsupported operand(s). Please enter a roman numeral with valid characters." 
 
 		operand2 = raw_input("Enter second roman numeral: ")
 
 		if not helper_is_string_roman_numeral(operand2):
 			print "Unsupported operand(s). Please enter a roman numeral with valid characters."
-			break
+
+		if (helper_reduce(operand2) > helper_reduce(operand1)) and operation == '-':
+			print "The second operand you entered is bigger than the first. Negative answers are not supported with roman numerals so this operation cannot be completed."
 
 		operand1 = operand1.upper()
 		operand2 = operand2.upper()
