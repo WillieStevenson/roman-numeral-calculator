@@ -258,19 +258,20 @@ if __name__ == "__main__":
 
 		operand1 = raw_input("Enter first roman numeral: ")
 
+		operand1 = operand1.upper()
+
 		if not helper_is_string_roman_numeral(operand1):
 			print "Unsupported operand(s). Please enter a roman numeral with valid characters." 
 
 		operand2 = raw_input("Enter second roman numeral: ")
+
+		operand2 = operand2.upper()
 
 		if not helper_is_string_roman_numeral(operand2):
 			print "Unsupported operand(s). Please enter a roman numeral with valid characters."
 
 		if (helper_reduce(operand2) > helper_reduce(operand1)) and operation == '-':
 			print "The second operand you entered is bigger than the first. Negative answers are not supported with roman numerals so this operation cannot be completed."
-
-		operand1 = operand1.upper()
-		operand2 = operand2.upper()
 
 		if operation == "+":
 			romanAdd(operand1, operand2)
