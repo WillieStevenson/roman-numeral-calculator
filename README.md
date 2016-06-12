@@ -1,7 +1,7 @@
 # roman-numeral-calculator
-A roman numeral calculator written in python that supports three operations [+, -, x] and shows the work for each step of the calculation.
+A small roman numeral calculator written in python that supports three operations [+, -, x] and shows the work for each step of the calculation.
 
-This is a small roman numeral caclulator that supports 3 operations [+, -, x] and purely deals in roman numerals and arrives at the correct based on roman numeral relationship pairs (subtractives and grouping). It does not support division because roman numerals only work in integer context. I wrote this script to verify one of my homework assignments in a CS class.
+I wrote this script to verify one of my homework assignments in a CS class. It purely deals in roman numerals and arrives at the correct answer based on roman numeral relationship pairs (subtractives and grouping). It does not support division because roman numerals only work in integer context. 
 
 
 ## Installation
